@@ -1,20 +1,60 @@
 package com.dorm18.geekren.spider;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Consumer;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GitHubUser {
-
 	private String id;
 	private String follows;
 	private String starred;
 	private String following;
 	private String joinedOn;
+	private String city;
+	private String country;
+	private String company;
+	private Set<String> repositoriesContributedTo;
+
+	public Set<String> getRepositoriesContributedTo() {
+		return repositoriesContributedTo;
+	}
+
+	public void setRepositoriesContributedTo(
+			Set<String> repositoriesContributedTo) {
+		this.repositoriesContributedTo = repositoriesContributedTo;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
 
 	public String getId() {
 		return id;
@@ -78,6 +118,37 @@ public class GitHubUser {
 				.select("#site-container > div > div > div.column.one-fourth.vcard > ul > li > time");
 		user.setJoinedOn(joinedOn.text());
 
+		Elements homeLocation = doc
+				.select("#site-container > div > div > div.column.one-fourth.vcard > ul > li[itemprop=\"homeLocation\"]");
+		if (homeLocation != null) {
+			String homeLocationText = homeLocation.text();
+			String[] split = homeLocationText.split(",");
+			if (split.length == 2) {
+				user.setCity(split[1]);
+				user.setCountry(split[0]);
+			}
+		}
+
+		Elements worksFor = doc
+				.select("#site-container > div > div > div.column.one-fourth.vcard > ul > li[itemprop=\"worksFor\"]");
+		if (worksFor != null) {
+			user.setCompany(worksFor.text());
+		}
+
+		Elements reposContri = doc
+				.select("#site-container > div > div > div.column.three-fourths > div.tab-content.js-repo-filter > div > div.columns.popular-repos > div:nth-child(2) > div > ul");
+		if (reposContri != null) {
+			user.setRepositoriesContributedTo(new HashSet<String>());
+			reposContri.first().children().forEach(new Consumer<Element>() {
+				@Override
+				public void accept(Element node) {
+					user.getRepositoriesContributedTo()
+							.add(node
+									.select("a > span.repo-and-owner.css-truncate-target")
+									.text().trim());
+				}
+			});
+		}
 		return user;
 	}
 
