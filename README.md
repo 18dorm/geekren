@@ -15,5 +15,12 @@
 
 若需要抓astaxie的github数据，请执行以下语句。程序会将抓取结果打印在控制台
 ```bash
-$ mvn clean package exec:java -Dexec.mainClass="com.dorm18.geekren.spider.GitHubUser" -Dexec.args="astaxie"
+$ mvn clean package exec:java -Dexec.mainClass="com.dorm18.geekren.github.pages.User" -Dexec.args="astaxie"
 ```
+## api
+
+```bash
+https://api.github.com/users/rosicky1985
+https://api.github.com/repos/18dorm/18dorm.github.io
+https://api.github.com/repos/rosicky1985/spider/stats/participation
+https://api.github.com/repos/18dorm/18dorm.github.io/stats/contributors

@@ -1,4 +1,4 @@
-package com.dorm18.geekren.spider;
+package com.dorm18.geekren.github.pages;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class GitHubUser {
+public class User {
 	private String id;
 	private String follows;
 	private String starred;
@@ -22,6 +22,9 @@ public class GitHubUser {
 	private String country;
 	private String company;
 	private Set<String> repositoriesContributedTo;
+//	private String contributionInLastYear;
+//	private String contributionInLastMonth;
+//	private String contributionInLastWeek;
 
 	public Set<String> getRepositoriesContributedTo() {
 		return repositoriesContributedTo;
@@ -96,8 +99,8 @@ public class GitHubUser {
 		this.joinedOn = joinedOn;
 	}
 
-	public static GitHubUser fetch(String userId) throws IOException {
-		GitHubUser user = new GitHubUser();
+	public static User fetch(String userId) throws IOException {
+		User user = new User();
 		user.setId(userId);
 
 		Document doc = Jsoup.connect("https://github.com/" + userId + "/")
@@ -155,11 +158,11 @@ public class GitHubUser {
 	public static void main(String[] args) throws IOException {
 		if (args.length != 1) {
 			System.out
-					.println("Usage: java com.dorm18.geekren.spider.GitHubUser [githubid]");
+					.println("Usage: java com.dorm18.geekren.github.pages.User [githubid]");
 			System.out
-					.println("Example: java com.dorm18.geekren.spider.GitHubUser [githubid]");
+					.println("Example: java com.dorm18.geekren.github.pages.User [githubid]");
 		}
-		GitHubUser user = fetch(args[0]);
+		User user = fetch(args[0]);
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println(mapper.writeValueAsString(user));
 	}
