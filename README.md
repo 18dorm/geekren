@@ -24,3 +24,8 @@ https://api.github.com/users/rosicky1985
 https://api.github.com/repos/18dorm/18dorm.github.io
 https://api.github.com/repos/rosicky1985/spider/stats/participation
 https://api.github.com/repos/18dorm/18dorm.github.io/stats/contributors
+
+## 如何抓取用户贡献的仓库
+
+- http://stackoverflow.com/questions/20714593/github-api-repositories-contributed-to
+- http://stackoverflow.com/questions/24006586/githubapi-get-repositories-a-user-has-ever-committed-in
