@@ -29,3 +29,8 @@ https://api.github.com/repos/18dorm/18dorm.github.io/stats/contributors
 
 - http://stackoverflow.com/questions/20714593/github-api-repositories-contributed-to
 - http://stackoverflow.com/questions/24006586/githubapi-get-repositories-a-user-has-ever-committed-in
+- http://stackoverflow.com/questions/21322778/how-do-i-get-a-list-of-all-the-github-projects-ive-contributed-to-in-the-last-y?lq=1
+
+## References
+
+- https://www.githubarchive.org/
