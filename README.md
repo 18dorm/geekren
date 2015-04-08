@@ -17,6 +17,13 @@
 ```bash
 $ mvn clean package exec:java -Dexec.mainClass="com.dorm18.geekren.github.pages.User" -Dexec.args="astaxie"
 ```
+
+## 调试方法
+
+```bash 
+mvn scala:console
+```
+
 ## api
 
 ```bash

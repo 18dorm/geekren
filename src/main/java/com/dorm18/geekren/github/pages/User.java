@@ -22,9 +22,6 @@ public class User {
 	private String country;
 	private String company;
 	private Set<String> repositoriesContributedTo;
-//	private String contributionInLastYear;
-//	private String contributionInLastMonth;
-//	private String contributionInLastWeek;
 
 	public Set<String> getRepositoriesContributedTo() {
 		return repositoriesContributedTo;
@@ -160,7 +157,8 @@ public class User {
 			System.out
 					.println("Usage: java com.dorm18.geekren.github.pages.User [githubid]");
 			System.out
-					.println("Example: java com.dorm18.geekren.github.pages.User [githubid]");
+					.println("Example: java com.dorm18.geekren.github.pages.User rosicky1985");
+			System.exit(1);
 		}
 		User user = fetch(args[0]);
 		ObjectMapper mapper = new ObjectMapper();

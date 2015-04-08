@@ -1,6 +1,7 @@
 package com.dorm18.geekren.github.api.user;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +24,7 @@ import org.jsoup.select.Elements;
  * http://stackoverflow.com/questions/21322778/how-do-i-get-a-list-of-
  * all-the-github-projects-ive-contributed-to-in-the-last-y?lq=1
  * 
- * @author wuxiaomin
+ * @author rosicky1985
  *
  */
 public class ContributionRepos {
@@ -51,10 +52,14 @@ public class ContributionRepos {
 		return "ContributionRepos [repo=" + repo + ", count=" + count + "]";
 	}
 
-	public static void fetch(String login, Date startDate, Integer months)
-			throws IOException {
+	public static Map<String, Integer> fetch(String login, Date startDate,
+			Integer months) throws IOException {
 		List<ContributionRepos> result = new ArrayList<ContributionRepos>();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		final Pattern p = java.util.regex.Pattern
+				.compile("Pushed\\s(\\d+)\\scommits?\\sto\\s(.*)");
+
 		DateTime start = new DateTime(startDate).withDayOfMonth(1);
 		DateTime endDate = start.plusMonths(months);
 		for (DateTime month = start; month.isBefore(endDate); month = month
@@ -71,8 +76,6 @@ public class ContributionRepos {
 			Elements contributionActivity = doc
 					.select("#site-container > div > div > div.column.three-fourths > div.tab-content.js-repo-filter > div > div.activity-listing.contribution-activity.js-contribution-activity > div.contribution-activity-listing > ul");
 			if (contributionActivity != null) {
-				Pattern p = java.util.regex.Pattern
-						.compile("Pushed\\s(\\d+)\\scommits?\\sto\\s(.*)");
 				Elements avtivity = contributionActivity.select("li > a.title");
 				List<ContributionRepos> pairs = avtivity.stream()
 						.map(new Function<Element, ContributionRepos>() {
@@ -108,9 +111,21 @@ public class ContributionRepos {
 										ContributionRepos::getCount,
 										Integer::sum)));
 		log.debug(summary);
+		return summary;
 	}
 
-	public static void main(String[] args) throws IOException {
-		fetch("peterfuture", new DateTime(2013, 9, 1, 0, 0, 0, 0).toDate(), 15);
+	public static void main(String[] args) throws IOException,
+			NumberFormatException, ParseException {
+		if (args.length != 3) {
+			String fullName = "java com.dorm18.geekren.github.api.user.ContributionRepos";
+			System.out.println(String.format(
+					"Usage: %s [githubid],[startTime],[months]", fullName));
+			System.out.println(String.format(
+					"Example: %s rosicky1985,2013-09-01,15", fullName));
+			System.exit(1);
+		}
+		final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		final String login = args[0];
+		fetch(login, sdf.parse(args[1]), Integer.valueOf(args[2]));
 	}
 }
