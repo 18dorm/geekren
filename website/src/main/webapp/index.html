@@ -1,5 +1,65 @@
+<!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8">
+	<title>极客人 - 中国最好的极客社区</title>
+	<script src="static/jquery-1.11.2.min.js"></script>
+	
+	<style>
+		body {padding-top: 70px;}
+	</style>
+</head>
 <body>
-<h2>Welcome to Geekren!</h2>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header"><span class="navbar-brand">极客人</span></div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">注册</a></li>
+					<li><a href="#">搜索</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">我的账号</a></li>
+			</ul>
+			</div>
+
+		</div>
+	</nav>
+	<div class="container" role="main">
+		<div class="jumbotron"><h2>欢迎来到极客人</h2>
+			<p>极客人是由<a href="http://18dorm.cn">18dorm</a>创办的，致力于中国极客沟通交流的社区。</p>
+		</div>
+
+		<div class="col-sm-offset-3 col-sm-6">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="email">注册邮箱</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="email" placeholder="你的注册邮箱。若为github账号，我们会为您根据您在github上的信息为您作初步评估">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">密码</label>
+					<div class="col-sm-10"> 
+						<input type="password" class="form-control" id="pwd" placeholder="请输入密码">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="repwd">确认密码</label>
+					<div class="col-sm-10"> 
+						<input type="password" class="form-control" id="repwd" placeholder="请确认输入密码">
+					</div>
+				</div>
+				<div class="form-group"> 
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-success">注册</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="static/angular.min.js"></script>
+	<script src="static/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+	<link href="static/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
 </body>
 </html>
