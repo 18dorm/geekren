@@ -12,6 +12,12 @@ Geekren的网站
 
 执行以下命令后在http://localhost:8080/website/可以看到网站的效果
 
+以下命令是开发模式(响应代码变化)
+```bash
+mvn jetty:run
+```
+
+以下命令是本地模式(不响应代码变化)
 ``` bash
 mvn clean package cargo:run
 ```

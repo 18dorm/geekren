@@ -1,0 +1,42 @@
+<div class="container" role="main" ng-controller="regist">
+	<div class="jumbotron"><h2>欢迎来到极客人</h2>
+		<p>极客人是由<a href="http://18dorm.cn">18dorm</a>创办的，致力于中国极客沟通交流的社区。</p>
+	</div>
+
+	
+	<div class="col-sm-offset-2 col-sm-8">
+		<div class="col-sm-12"><h2>你好！ {{email}} </h2></div>
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">注册邮箱</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="email" placeholder="你的注册邮箱。若为github账号，我们会为您根据您在github上的信息为您作初步评估">
+					<span class="red">*</span>
+					<span ng-show="emailRequired" class="red">{{emailRequired}}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="password">密码</label>
+				<div class="col-sm-10"> 
+					<input type="password" class="form-control" ng-model="password" placeholder="请输入密码">
+					<span class="red">*</span>
+					<span class="red" ng-show="passwordRequired">{{passwordRequired}}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="passwordConfirmed">确认密码</label>
+				<div class="col-sm-10"> 
+					<input type="password" class="form-control" ng-model="passwordConfirmed" placeholder="请确认输入密码">
+					<span class="red">*</span>
+					<span class="red" ng-show="passwordConfirmedRequired">{{passwordConfirmedRequired}}</span>
+					<span class="red" ng-show="passwordConfirmedRequiredToBeSame">{{passwordConfirmedRequiredToBeSame}}</span>
+				</div>
+			</div>
+			<div class="form-group"> 
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" ng-click="saveData()" class="btn btn-success">注册</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

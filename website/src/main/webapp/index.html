@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="geekren">
 <head>
 	<meta charset="utf-8">
 	    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
@@ -10,15 +10,21 @@
     <link rel="shortcut icon" href="./favicon.png" />		
     <!-- Font Awesome -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Camera -->
     <link href="css/camera.css" rel="stylesheet">
     <!-- Template  -->
     <link href="css/templatemo_style.css" rel="stylesheet">
 
+	<script src="static/angularjs/1.2.16/angular.js"></script>
+	<script src="static/angularjs/1.2.16/angular-route.min.js"></script>
+	<script src="static/ui-bootstrap-tpls-0.12.1.min.js"></script>
+	<script src="modules/registration.js"></script>
+	<script src="static/geekren/geekren.js"></script>
+	
+	<link href="static/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 		body {padding-top: 70px;}
+		.red {color: red;}
 	</style>
 
 </head>
@@ -45,186 +51,9 @@
 	</div>
 </nav>
 
-<div class="container" role="main">
-	<div class="jumbotron"><h2>欢迎来到极客人</h2>
-		<p>极客人是由<a href="http://18dorm.cn">18dorm</a>创办的，致力于中国极客沟通交流的社区。</p>
-        <a href="#" class="btn btn-large btn-primary">立刻加入</a>
-	</div>
-<!--
-	<div class="col-sm-offset-3 col-sm-6">
-		<form class="form-horizontal" role="form">
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="email">注册邮箱</label>
-				<div class="col-sm-10">
-					<input type="email" class="form-control" id="email" placeholder="你的注册邮箱。若为github账号，我们会为您根据您在github上的信息为您作初步评估">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="pwd">密码</label>
-				<div class="col-sm-10"> 
-					<input type="password" class="form-control" id="pwd" placeholder="请输入密码">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="repwd">确认密码</label>
-				<div class="col-sm-10"> 
-					<input type="password" class="form-control" id="repwd" placeholder="请确认输入密码">
-				</div>
-			</div>
-			<div class="form-group"> 
-				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-success">注册</button>
-				</div>
-			</div>
-		</form>
-	</div>
--->
-
+<div id="main">
+	<div ng-view></div>
 </div>
-
-<hr>
-
-<div id="templatemo_about" class="container_wapper">
-    
-    <div class="container-fluid">
-
-        <div class="col-sm-6 col-md-3 about_icon">
-            <div class="imgwap mission"><i class="fa fa-rocket"></i></div>
-            <h2>英雄榜</h2>
-            <p>开源爱好者升级之路</p>
-        </div>
-        <div class="col-sm-6 col-md-6 about_icon">
-	        <table class="table table-striped">
-	        	<caption>中国区github用户排名</caption>
-	        	<thead>
-		  			<tr class="success">
-		         		<th>user</th>
-		         		<th>name</th>
-		         		<th>country</th>
-		         		<th>city</th>
-		         		<th>repos</th>
-		         		<th>followers</th>
-		      		</tr>
-	   			</thead>
-
-		   		<tbody>
-		      		<tr>
-		         		<td>user1</td>
-		         		<td>name1</td>
-		         		<td>China</td>
-		         		<td>Shanghai</td>
-		         		<td>10</td>
-		         		<td>20</td>
-		      		</tr>
-		   		</tbody>
-		   		<tbody>
-		      		<tr>
-		         		<td>user2</td>
-		         		<td>name2</td>
-		         		<td>China</td>
-		         		<td>Hangzhou</td>
-		         		<td>20</td>
-		         		<td>100</td>
-		      		</tr>
-		   		</tbody>
-
-	        </table>
-    	</div>
-    </div>
-
-	<hr>
-
-    <div class="container-fluid">
-        
-        <div class="col-sm-6 col-md-3 about_icon">
-            <div class="imgwap product"><i class="fa fa-cubes"></i></div>
-            <h2>创意汇</h2>
-            <p>码农也是产品经理</p>
-        </div>
-        <div class="col-sm-6 col-md-6 about_icon">            	        
-	        <div id="testimonial_text_wap" class="col-xs-9 col-sm-10">
-	            <div class="testimonial_text">	                
-	                <div class="col-sm-6">
-	                    <h2>硅谷共享创业社区</h2>
-	                    <p>提高创业者效益，硅谷式互联网共享创业社区，活跃的创业者的生态社区</p>
-	                </div>
-	                <div class="col-sm-6">
-	                    <img src="http://ycpai-upload.u.qiniudn.com/upload_img_14289936677814.jpg" class="img-responsive" alt="Chief Public Relation Officer" />
-	                </div>	                
-	            </div><!--.testimonial_text-->
-	        </div><!--#testimonial_text_wap-->
-	        <a href="#" class="btn btn-large btn-primary">查看更多</a>
-    	</div>
-
-    </div>
-
-	<hr>
-
-    <div class="container-fluid">
-        <div class="col-sm-6 col-md-3 about_icon">
-            <div class="imgwap testimonial"><i class="fa fa-bar-chart-o"></i></div>
-            <h2>极客圈</h2>
-            <p>开源爱好者自己的社交网络</p>
-        </div>
-        <div class="col-sm-6 col-md-6 about_icon">
-	        <table class="table table-striped">
-	        	<caption>中国区github用户排名</caption>
-	        	<thead>
-		  			<tr class="success">
-		         		<th>user</th>
-		         		<th>name</th>
-		         		<th>country</th>
-		         		<th>city</th>
-		         		<th>repos</th>
-		         		<th>followers</th>
-		      		</tr>
-	   			</thead>
-
-		   		<tbody>
-		      		<tr>
-		         		<td>user1</td>
-		         		<td>name1</td>
-		         		<td>China</td>
-		         		<td>Shanghai</td>
-		         		<td>10</td>
-		         		<td>20</td>
-		      		</tr>
-		   		</tbody>
-		   		<tbody>
-		      		<tr>
-		         		<td>user2</td>
-		         		<td>name2</td>
-		         		<td>China</td>
-		         		<td>Hangzhou</td>
-		         		<td>20</td>
-		         		<td>100</td>
-		      		</tr>
-		   		</tbody>
-
-	        </table>
-    	</div>
-    </div>
-
-    <hr>
-
-    <div class="container-fluid">
-        <div class="col-sm-6 col-md-3 about_icon">
-            <div class="imgwap statistic"><i class="fa fa-comments"></i></div>
-            <h2>新闻角</h2>
-            <p>实时科技新闻总汇</p>
-        </div>
-        <div class="col-sm-6 col-md-6 about_icon">
-            <h2>Linux 4.0来了</h2>
-            <a href="http://geek.csdn.net/news/detail/30579">
-            	<p>Linux Torvalds刚才已经在内核开发的Git系统中按下了按钮，代号为“Hurr durr I'ma sheep”的Linux 4.0终于问世了。为了应景，他还给自己起了个绰号叫"we're all sheep"，放在名字中间。有意思的是，对应的内核网站也已经开始运作：https://imasheep.hurrdurr.org/</p>
-            </a>
-	    </div>
-
-    </div>
-
-    <div class="clearfix testimonial_top_bottom_spacer"></div>
-
-</div><!--templatemo_about-->
 
 <hr>
 
@@ -236,12 +65,10 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.singlePageNav.min.js"></script>
 <script src="js/unslider.min.js"></script>
 
 <script src="js/templatemo_script.js"></script>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
-
 </body>
 </html>
