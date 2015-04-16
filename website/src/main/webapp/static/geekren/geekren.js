@@ -1,8 +1,9 @@
-var geekren = angular.module('geekren', ['ui.bootstrap','ngRoute']);
+"use strict";
+
+var geekren = angular.module('geekren', 
+	['ui.bootstrap','ngRoute',
+	'geekren.regist','geekren.home']);
 
 geekren.config(function($routeProvider){
-	$routeProvider
-			.when('/', {
-                templateUrl : 'static/geekren/home.html',
-            })
+	$routeProvider.otherwise({ redirectTo: '/home' });
 });
