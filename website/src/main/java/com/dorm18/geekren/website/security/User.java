@@ -1,4 +1,4 @@
-package com.dorm18.geekren.website.login.web;
+package com.dorm18.geekren.website.security;
 
 public class User {
 	private String email;

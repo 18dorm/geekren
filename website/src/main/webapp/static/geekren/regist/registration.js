@@ -1,5 +1,5 @@
 'use strict';
-
+var ctx='website';
 angular.module('geekren.regist', ['ngRoute'])
 	.config(['$routeProvider', function($routeProvider) {
 	  $routeProvider.when('/regist', {
@@ -8,7 +8,7 @@ angular.module('geekren.regist', ['ngRoute'])
 	  });
 	}])
 
-	.controller('regist', function ($scope) {
+	.controller('regist', function ($scope, $http) {
 		$scope.email="rosicky"
 		$scope.saveData=function(){
 			$scope.emailRequired='';
@@ -32,5 +32,12 @@ angular.module('geekren.regist', ['ngRoute'])
 	      		$scope.passwordConfirmedRequiredToBeSame='两次输入密码不一致';
 	      	}
 
+	      	if($scope.emailRequired == "" && $scope.passwordRequired == "" 
+	      		&& $scope.passwordConfirmedRequired == "" && $scope.passwordConfirmedRequiredToBeSame == "") {
+	      		$http.post('api/regist' ,"email="$scope.email+"&password="+$scope.password )
+	      		.success(function(data,status,headers,config){
+	      			alert(data);
+	      		});
+	      	}
 		}
 	});
