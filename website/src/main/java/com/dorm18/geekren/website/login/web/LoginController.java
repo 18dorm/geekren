@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginController {
-	@RequestMapping("/api/login")
+	@RequestMapping("/login")
 	public User login(String username, String pwd) {
 		User ret = new User();
 		ret.setEmail("rosicky1985@163.com");
