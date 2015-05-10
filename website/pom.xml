@@ -13,7 +13,12 @@
 		<jackson.version>2.4.0</jackson.version>
 	</properties>
 	<build>
-		<plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+      </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -64,4 +69,3 @@
 		</dependency>
 	</dependencies>
 </project>
-
