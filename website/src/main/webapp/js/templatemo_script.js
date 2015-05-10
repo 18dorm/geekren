@@ -131,7 +131,7 @@ jQuery(function(){
                 $("#templatemo_timeline .container-fluid").css({"position":"absolute"});
                 positon_left = $("#templatemo_timeline .container-fluid").position().left +100;
                 //put on right
-                $(this).css({   
+                $(this).css({
                                     'left': 70,
                                     'top':$.timeline_right_position_top,
                                     'width': $(window).width() - positon_left
@@ -144,7 +144,7 @@ jQuery(function(){
             }else if($.timeline_left_position_top == 0){
                 $("#templatemo_timeline .container-fluid").css({"position":"relative"});
                 //put on left
-                $(this).css({   
+                $(this).css({
                                     'left':0,
                                     'top':0,
                                     'width': $.timeline_item_width - 50
@@ -158,7 +158,7 @@ jQuery(function(){
                 $("#templatemo_timeline .container-fluid").css({"position":"relative"});
                 $.timeline_right_position_top = ($.timeline_old_left_position_top + 40) < $.timeline_right_position_top  ? $.timeline_right_position_top : $.timeline_right_position_top + 40;
                 //put on right
-                $(this).css({   
+                $(this).css({
                                     'left': $.timeline_item_width + 79,
                                     'top':$.timeline_right_position_top,
                                     'width': $.timeline_item_width - 50
@@ -210,7 +210,7 @@ jQuery(function(){
     jQuery.fn.anchorAnimate = function(settings) {
         settings = jQuery.extend({
             speed : 1100
-        }, settings);	
+        }, settings);
         return this.each(function(){
             var caller = this
             $(caller).click(function (event){
@@ -232,7 +232,7 @@ jQuery(function(){
         });
     }
     //animate scroll function calll
-    $("#templatemo_mobile_menu a").anchorAnimate();    
+    $("#templatemo_mobile_menu a").anchorAnimate();
     //about
     $(document).scroll(function(){
         document_top = $(document).scrollTop();
@@ -278,7 +278,7 @@ jQuery(function(){
             $("#templatemo_events .event_animate_left").css({'left': 0,'opacity':1});
             $("#templatemo_events .event_animate_right").css({'left':0,'opacity':1});
         }
-    }); 
+    });
 });
 //google map
 function initialize(){
@@ -324,5 +324,5 @@ function initialize(){
         title: 'Welcome to Yangon'
     });
 }
-google.maps.event.addDomListener(window, 'load', initialize);
-google.maps.event.addDomListener(window, 'resize', initialize);
+//google.maps.event.addDomListener(window, 'load', initialize);
+//google.maps.event.addDomListener(window, 'resize', initialize);
