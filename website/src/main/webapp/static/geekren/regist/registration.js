@@ -34,7 +34,7 @@ angular.module('geekren.regist', ['ngRoute'])
 
 	      	if($scope.emailRequired == "" && $scope.passwordRequired == "" 
 	      		&& $scope.passwordConfirmedRequired == "" && $scope.passwordConfirmedRequiredToBeSame == "") {
-	      		$http.post('api/regist' ,"email="$scope.email+"&password="+$scope.password )
+	      		$http.post('api/regist' ,"email="+$scope.email+"&password="+$scope.password )
 	      		.success(function(data,status,headers,config){
 	      			alert(data);
 	      		});
