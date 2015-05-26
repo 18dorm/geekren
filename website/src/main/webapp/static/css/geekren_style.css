@@ -1,0 +1,365 @@
+/*!
+ * Geekren v0.1 (http://geeks.ren)
+ * Copyright 2015-2016 18dorm, Inc.
+ * Licensed under MIT
+ */
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/*
+html style
+*/
+
+html {
+font-family: Karla,'Hiragino Sans GB','Microsoft YaHei',微软雅黑,STHeiti,'WenQuanYi Micro Hei',Helvetica,Arial,sans-serif;
+color: #333;
+font-size: 100%;
+}
+html {
+font-family: sans-serif;
+}
+/*
+body style
+*/
+body {padding-top: 60px;
+}
+@media (max-width: 979px){
+  body{ padding-top:0; }
+}
+body {
+background: #f1f1f1;
+}
+
+/*
+navigator header
+*/
+header {
+padding: 0 1em;
+-webkit-transition: all .5s;
+-moz-transition: all .5s;
+transition: all .5s;
+}
+
+header {
+position: fixed;
+z-index: 1;
+left: 0;
+right: 0;
+top: 0;
+line-height: 2em;
+}
+
+li {
+display: list-item;
+text-align: -webkit-match-parent;
+}
+
+header .gold .badge {
+position: absolute;
+background: #f4726d;
+width: .4em;
+height: .4em;
+border-radius: 100%;
+left: .8em;
+top: .1em;
+}
+
+ul, menu, dir {
+display: block;
+list-style-type: disc;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+}
+
+.action+.action {
+margin-left: 1em;
+}
+
+.nav-list {
+list-style-type: none;
+padding-left: 0;
+}
+.nav-list>li {
+display: inline-block;
+}
+
+.nav-list .dropdown {
+position: relative;
+}
+.nav-list .menu-title {
+text-align: center;
+cursor: pointer;
+}
+.nav-list .menu {
+text-align: left;
+opacity: 0;
+visibility: hidden;
+position: absolute;
+right: -1em;
+background-color: #fff;
+width: 13em;
+border: 1px solid #ddd;
+box-shadow: rgba(0,0,0,.05) 0 1px 3px 0;
+border-radius: 6px;
+-webkit-transition: opacity .3s,visibility .3s;
+-moz-transition: opacity .3s,visibility .3s;
+transition: opacity .3s,visibility .3s;
+}
+.menu {
+list-style-type: none;
+padding-left: 0;
+}
+
+
+/*home*/
+a {
+text-decoration: none;
+-webkit-transition: color .3s,background-color .3s;
+-moz-transition: color .3s,background-color .3s;
+transition: color .3s,background-color .3s;
+color: #333;
+}
+a {
+background-color: transparent;
+}
+.tags .tag {
+margin-bottom: .5em;
+}
+.tags {
+font-size: .8em;
+margin: .5em 0;
+}
+.tag {
+display: inline-block;
+padding: .2em .4em;
+border-radius: 6px;
+color: #777;
+background: #f1f1f1;
+}
+.tag+.new-tag-input, .tag+.tag {
+margin-left: 1em;
+}
+.fa+span, span+.fa {
+margin-left: .5em;
+}
+
+.page-categories {
+margin-top: 1em;
+margin-bottom: 1em;
+}
+section .header.blue {
+background: #4a90e2;
+color: #fff;
+border-bottom-color: #4a90e2;
+}
+section .header {
+padding: .75em;
+border-radius: 6px 6px 0 0;
+text-align: center;
+border: 0;
+border-bottom: 1px solid #f1f1f1;
+}
+
+@media (min-width: 480px)
+.billboard .use-modal {
+cursor: pointer;
+}
+section article:last-child {
+margin-bottom: 0;
+}
+.billboard article {
+-webkit-transition: background .3s;
+-moz-transition: background .3s;
+transition: background .3s;
+}
+
+
+p {
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+
+section p {
+line-height: 1.5em;
+}
+
+@media (min-width: 480px)
+.billboard .use-modal {
+cursor: pointer;
+}
+
+.billboard .recommend {
+display: inline-block;
+font-size: .6em;
+width: 4em;
+text-align: center;
+padding: .5em 0;
+border-radius: 2px;
+border: 1px solid #777;
+color: #777;
+-webkit-transition: border .3s,color .3s,background .3s;
+-moz-transition: border .3s,color .3s,background .3s;
+transition: border .3s,color .3s,background .3s;
+}
+
+img.avatar.inline {
+width: 1.5em;
+height: 1.5em;
+}
+img.avatar {
+width: 6em;
+height: 6em;
+border-radius: 50%;
+vertical-align: text-top;
+}
+img {
+border: 0;
+}
+img.avatar.inline+.name {
+margin-left: .5em;
+}
+
+.invitation, .invite-comment {
+color: #777;
+}
+
+
+
+
+
+/*register style*/
+section .inner {
+max-width: 480px;
+margin-left: auto;
+margin-right: auto;
+}
+.input {
+margin-bottom: 1.5em;
+}
+.input.has-hint {
+margin-bottom: 2.5em;
+}
+.inner-left {
+display: inline-block;
+width: 20%;
+vertical-align: top;
+}
+.inner-right {
+display: inline-block;
+width: 100%;
+max-width: 100%;
+}
+
+.input.submit {
+text-align: right;
+}
+input[type=submit] {
+background: #4a90e2;
+}
+.button, button, input[type=submit] {
+display: inline-block;
+line-height: 1.5em;
+padding: .4em 1em;
+border: 0;
+border-radius: 6px;
+color: #fff!important;
+outline: 0;
+-webkit-transition: background .3s;
+-moz-transition: background .3s;
+transition: background .3s;
+}
+
+label {
+cursor: default;
+}
+
+input {
+line-height: normal;
+}
+
+input[type=email].error, input[type=email].error:focus, input[type=email].error:hover {
+border-bottom-color: #f4726d;
+}
+input[type=password].error, input[type=password].error:focus, input[type=password].error:hover {
+border-bottom-color: #f4726d;
+}
+input[type=text].error, input[type=text].error:focus, input[type=text].error:hover {
+border-bottom-color: #f4726d;
+}
+input[type=url].error, input[type=url].error:focus, input[type=url].error:hover {
+border-bottom-color: #f4726d;
+}
+
+input[type=email], input[type=password], input[type=text], input[type=url], textarea {
+line-height: 1.3em;
+padding: 0;
+border: none;
+border-radius: 0;
+}
+
+input[type=email], input[type=password], input[type=text], input[type=url] {
+border-bottom: 2px solid #f1f1f1;
+-webkit-transition: width .3s,border .3s;
+-moz-transition: width .3s,border .3s;
+transition: width .3s,border .3s;
+}
+
+button, input, optgroup, select, textarea {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+
+/*
+div container
+*/
+.main {
+-webkit-transition: -webkit-transform .5s;
+-moz-transition: -moz-transform .5s;
+transition: transform .5s;
+}
+.container {
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/*common style*/
+.text-blue {color: #4a90e2;}
+.text-green{color:#2cc185}
+.text-red{color:#f4726d}
+.text-yellow{color:#ffc107}
+.text-left{text-align:left}
+.text-center{text-align:center}
+.text-right{text-align:right}
+
+.float-left {float: left;}
+.float-right {float: right;}
+
+header, section {
+background: #fff;
+box-shadow: rgba(0,0,0,.1) 0 1px 3px 0;
+}
+
+div header{
+display: block;
+}
+section article {
+padding: .5em 1em;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+display: block;
+}
+article, aside, footer, header, hgroup, main, nav, section {
+display: block;
+}
+.alert-notification, .card, .modal, .page-categories .tag.active, .page-categories .tag:hover, header, section {
+background: #fff;
+box-shadow: rgba(0,0,0,.1) 0 1px 3px 0;
+}

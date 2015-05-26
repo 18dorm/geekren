@@ -2,71 +2,65 @@
 <html lang="en" ng-app="geekren">
 <head>
 	<meta charset="utf-8">
-	    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>极客人 - 中国最好的极客社区</title>
 
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="./favicon.png" />
-	<!-- Font Awesome -->
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<!-- Camera -->
-	<link href="css/camera.css" rel="stylesheet">
-	<!-- Template  -->
-	<link href="css/templatemo_style.css" rel="stylesheet">
+	<link href="static/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="static/css/geekren_style.css" rel="stylesheet">
 
-	<script src="static/angularjs/1.2.16/angular.js"></script>
-	<script src="static/angularjs/1.2.16/angular-route.min.js"></script>
-	<script src="static/ui-bootstrap-tpls-0.12.1.min.js"></script>
-	<script src="static/geekren/regist/registration.js"></script>
-	<script src="static/geekren/home/home.js"></script>
-	<script src="static/geekren/heros/heros.js"></script>
-	<script src="static/geekren/geekren.js"></script>
-
-	<link href="static/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
 
 </head>
 
 <body>
+	<header class="headroom headroom--top">
+		<nav class="clearfix">
+			<!--
+			<ul class="nav-list float-left">
+				<li class="action"><a href="/"><img src="/images/logo.svg"></a></li>
+			</ul>-->
+			<ul class="nav-list float-right">
+				<li class="action"><a href="#"><i class="fa fa-user text-green"></i><span class="hide-when-small">英雄榜</span></a></li>
+				<li class="action"><a href="#"><i class="fa fa-group text-red"></i><span class="hide-when-small">极客圈</span></a></li>
+				<li class="action"><a href="#"><i class="fa fa-comment text-blue"></i><span class="hide-when-small">极客社区</span></a></li>
+				<li class="action"><a href="#"><i class="fa fa-wrench text-yellow"></i><span class="hide-when-small">API</span></a></li>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header"><span class="navbar-brand"><a href="#/home">极客人</a></span></div>
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="#/heros">英雄榜</a></li>
-				<li><a href="#">创意汇</a></li>
-				<li><a href="#">极客圈</a></li>
-				<li><a href="#">新闻角</a></li>
-				<li><a href="#">社区论坛</a></li>
+				<li class="action dropdown">
+					<i class="fa fa-male"></i>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">账户
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">登录</a></li>
+						<li><a href="#regist">注册</a></li>
+					</ul>
+				</li>
+
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">登录</a></li>
-				<li class="divider-vertical"></li>
-				<li><a href="#/regist">注册</a></li>
-			</ul>
-		</div>
+		</nav>
+	</header>
+
+	<div id="main">
+		<div ng-view></div>
 	</div>
-</nav>
 
-<div id="main">
-	<div ng-view></div>
+<div class="footer">
+	<p align="center">Copyright &copy; Geekren 2015.All rights reserved.<a target="_blank"</a></p>
 </div>
 
-<hr>
+<script src="static/js/jquery1.11.2.min.js"></script>
+<script src="static/angularjs/1.2.16/angular.js"></script>
+<script src="static/angularjs/1.2.16/angular-route.min.js"></script>
+<script src="static/js/ui-bootstrap-tpls-0.12.1.min.js"></script>
+<script src="static/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
 
-<div id="templatemo_footer">
-    <div>
-        <p>Copyright &copy; 18dorm 2015.All rights reserved.<a target="_blank"</a></p>
-    </div>
-</div>
+<script src="static/geekren/regist/registration.js"></script>
+<script src="static/geekren/home/home.js"></script>
+<script src="static/geekren/heros/heros.js"></script>
+<script src="static/geekren/geekren.js"></script>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/jquery.singlePageNav.min.js"></script>
-<script src="js/unslider.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/templatemo_script.js"></script>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
