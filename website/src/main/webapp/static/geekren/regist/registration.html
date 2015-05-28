@@ -5,23 +5,23 @@
 			<form method="post" role="form">
 				<div class="inner">
 					<p class="input has-hint">
-						<label for="code" class="inner-left">邀请码</label>
-						<input type="text" name="code" placeholder="12345" required="false" class="inner-right error">
+						<label for="code" class="inner-left">用户名</label>
+						<input type="text" name="user_name" ng-model="user_name" placeholder="名姓或者常用ID" required="" class="inner-right error">
 					</p>
 					<p class="input">
-						<label for="name" class="inner-left">用户名：</label>
-						<input type="text" name="name" ng-model="email" placeholder="姓名或者常用ID" required="" class="inner-right error">
+						<label for="name" class="inner-left">邮箱：</label>
+						<input type="text" name="user_email" ng-model="user_email" placeholder="sample@geeks.ren" required="" class="inner-right error">
 						<span ng-show="emailRequired">{{emailRequired}}</span>
 					</p>
 					<p class="input">
 						<label for="email" class="inner-left">github：</label>
-						<input type="email" name="email" placeholder="sample@geeks.ren" required="false" class="inner-right error">
+						<input type="email" name="user_github" ng-model="user_github" placeholder="sample@geeks.ren" required="" class="inner-right error">
 					</p>
 
 					<p class="input">
 						<label for="password" class="inner-left">新密码：</label>
 						<input type="password" name="password" ng-model="password" required="" class="inner-right">
-						<span ng-show="passwordRequired">{{passwordRequired}}</span>
+						<!--<span ng-show="passwordRequired">{{passwordRequired}}</span>-->
 					</p>
 					<p class="input">
 						<label for="confirm" class="inner-left">再次确认：</label>
