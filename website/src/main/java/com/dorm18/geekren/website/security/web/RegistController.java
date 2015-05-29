@@ -1,5 +1,6 @@
 package com.dorm18.geekren.website.security.web;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +22,8 @@ public class RegistController {
 	 * @return
 	 */
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
-	public User login(String email,String password) {
-		System.out.println(email + "|" + password);
+	public User login(@RequestBody User user) {
+		System.out.println(user);
 		User ret = new User();
 		ret.setEmail("rosicky1985@163.com");
 		ret.setPassword("123");
