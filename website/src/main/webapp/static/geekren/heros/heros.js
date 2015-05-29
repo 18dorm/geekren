@@ -21,27 +21,19 @@ geekren_heroinfo.config(function($routeProvider){
 /*
 geekren_heros search controller
 */
-var search_controller = geekren_heros.controller('heros_search', function ($scope, $http) {
+var search_controller = geekren_heros.controller('heros_search', ['$scope', '$routeParams', '$http',function ($scope, $routeParams, $http) {
 		//--------------------------------
-		$scope.githuber = {
-			url:"https://github.com/peterfuture",
-			icon:"https://avatars0.githubusercontent.com/u/3294183?v=3&amp;s=460",
-			id:"peter-s",
-			name:"peterfuture",
-			email:"peter_future@outlook.com",
-			company:"18dorm",
-			location:"Shanghai.China",
-			github_in_time:"2013-01-17",
-			followers:10,
-			starred:10,
-			following:5,
-			tags:["多媒体","业余前端"]
-		};
+		$scope.githuber ={};
 		$scope.search_style="display:none";
-		$scope.search_content = "peterfuture";
+		$scope.search_content = "";
 		$scope.github_search=function(){
-			//alert("searching:" + $scope.search_content);
-			$scope.search_style="";
+			var url = "https://api.github.com/users/" + $scope.search_content;
+			$http.get(url)
+			.success(function(data){
+				$scope.githuber = data;
+				// display user info
+				$scope.search_style="";
+			});
 		}
 		//--------------------------------
-	});
+	}]);

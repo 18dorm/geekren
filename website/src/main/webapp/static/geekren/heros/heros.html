@@ -1,6 +1,6 @@
 <div class="main container" ng-controller="heros_search">
 	<section class="billboard">
-		<div class="header blue">搜索感兴趣的人</div>
+		<div class="header blue">搜索感兴趣的人 - 组织</div>
 		<br>
 		<article>
 			<form class="form-inline">
@@ -8,7 +8,7 @@
 			    <label class="sr-only" for="exampleInputAmount">输入github用户名或者组织名</label>
 			    <div class="input-group">
 			      <div class="input-group-addon"><i class="fa fa-github"></i></div>
-			      <input type="text" class="form-control" id="exampleInputAmount" placeholder={{search_content}} style="margin-left: 0.2em;">
+			      <input type="text" class="form-control" id="exampleInputAmount" placeholder="输入github账户" style="margin-left: 0.2em;" ng-model="search_content">
 			    </div>
 			  </div>
 			  <button type="submit" class="btn btn-primary" ng-click="github_search();" style="margin-left: 0.4em;"><span>搜索</span></button>
@@ -23,17 +23,30 @@
 					<i class="fa fa-thumbs-up"></i>
 					<span class="score">{{githuber.followers}}</span>
 				</span>
-				<img src={{githuber.icon}} class="avatar inline">
-				<a href={{githuber.url}} target="_blank" class="name modal-cover">{{githuber.id}}({{githuber.name}})</a>
+				<img src={{githuber.avatar_url}} class="avatar inline">
+				<a href={{githuber.html_url}} target="_blank" class="name modal-cover">{{githuber.name}}({{githuber.login}})</a>
 			</h2>
 			<p class="invitation">
+				<h4>类型:{{githuber.type}}</h4>
+			</p>
+			<p class="invitation">
 				<h4>公司:{{githuber.company}}</h4>
+			</p>
+			<p class="invitation">
+				<h4>邮件:{{githuber.email}}</h4>
 			</p>
 			<p class="invitation">
 				<h4>城市:{{githuber.location}}</h4>
 			</p>
 			<p class="invitation">
-				<h4>加入时间:{{githuber.github_in_time}}</h4>
+				<h4>加入时间:{{githuber.created_at}}</h4>
+			</p>
+			<p class="invitation">
+				<h4>最近更新:{{githuber.updated_at}}</h4>
+			</p>
+			<p class="invitation">
+				<h4>公共仓库数:{{githuber.public_repos}}</h4>
+			</p>
 			<p class="invitation">
 				<h4>关注仓库数:{{githuber.starred}}</h4>
 			</p>
