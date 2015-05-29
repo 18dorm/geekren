@@ -1,6 +1,6 @@
 <div class="main container" ng-controller="heros_search">
 	<section class="billboard">
-		<div class="header blue">搜索感兴趣的人 - 组织</div>
+		<!--<div class="header blue">搜索感兴趣的人 - 组织</div>-->
 		<br>
 		<article>
 			<form class="form-inline">
@@ -17,7 +17,7 @@
 		<hr>
 
 		<article class="use-modal" id="user_details_info" style={{search_style}}>
-
+			<div class="header blue">基本信息</div>
 			<h2>
 				<span class="recommend float-right">
 					<i class="fa fa-thumbs-up"></i>
@@ -27,35 +27,68 @@
 				<a href={{githuber.html_url}} target="_blank" class="name modal-cover">{{githuber.name}}({{githuber.login}})</a>
 			</h2>
 			<p class="invitation">
-				<h4>类型:{{githuber.type}}</h4>
+				<h5>类型:{{githuber.type}}</h5>
 			</p>
 			<p class="invitation">
-				<h4>公司:{{githuber.company}}</h4>
+				<h5>公司:{{githuber.company}}</h5>
 			</p>
 			<p class="invitation">
-				<h4>邮件:{{githuber.email}}</h4>
+				<h5>邮件:{{githuber.email}}</h5>
 			</p>
 			<p class="invitation">
-				<h4>城市:{{githuber.location}}</h4>
+				<h5>城市:{{githuber.location}}</h5>
 			</p>
 			<p class="invitation">
-				<h4>加入时间:{{githuber.created_at}}</h4>
+				<h5>加入时间:{{githuber.created_at}}</h5>
 			</p>
 			<p class="invitation">
-				<h4>最近更新:{{githuber.updated_at}}</h4>
+				<h5>最近更新:{{githuber.updated_at}}</h5>
 			</p>
+
 			<p class="invitation">
-				<h4>公共仓库数:{{githuber.public_repos}}</h4>
-			</p>
-			<p class="invitation">
-				<h4>关注仓库数:{{githuber.starred}}</h4>
-			</p>
-			<p class="invitation">
-				<h4>关注人数:{{githuber.following}}</h4>
+				<h5>关注人数:{{githuber.following}}</h5>
 			</p>
 			<div class="tags" >
 				<div class="tag" ng-repeat="tag in githuber.tags">{{tag}}</div>
 			</div>
 		</article>
+
+		<article class="use-modal" id="user_details_info" style={{search_style}}>
+			<div class="header blue">仓库信息</div>
+			<p class="invitation">
+				<h5>公共仓库数:{{githuber.public_repos}}</h5>
+			</p>
+			<table class="table table-striped">
+				<thead>
+					<tr class="success">
+						<th>name</th>
+						<th>private</th>
+						<th>created_at</th>
+						<th>forks</th>
+						<th>stares</th>
+						<th>watchers</th>
+						<th>description</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="repo in githuber.repos">
+					<tr>
+						<td>{{repo.name}}</td>
+						<td>{{repo.private}}</td>
+						<td>{{repo.created_at}}</td>
+						<td>{{repo.forks_count}}</td>
+						<td>{{repo.stargazers_count}}</td>
+						<td>{{repo.watchers_count}}</td>
+						<td>{{repo.description}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+		<article class="use-modal" id="user_details_info" style={{search_style}}>
+			<div class="header blue">最新动态</div>
+			<p class="invitation" ng-repeat="event in githuber.events |filter:PushEvent">
+					{{event.created_at}} {{event.actor.login}} push one commit to {{event.repo.name}}
+			</p>
+		</article>
+
 	</section>
 </div>
