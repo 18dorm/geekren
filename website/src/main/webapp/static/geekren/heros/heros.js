@@ -43,7 +43,8 @@ var search_controller = geekren_heros.controller('heros_search', ['$scope', '$ro
 			.success(function(data){
 				$scope.githuber.repos = data;
 				var event_url = $scope.githuber.events_url;
-				get_events(event_url.substr(0, event_url.length - 10));
+				get_events(event_url.substr(0, event_url.length - 10)); // remove {private}
+				//get_scroes($scope.githuber)
 			});
 		}
 
@@ -55,6 +56,34 @@ var search_controller = geekren_heros.controller('heros_search', ['$scope', '$ro
 					data.length=5;
 				$scope.githuber.events = data;
 				//alert($scope.githuber.events[0].type);
+			});
+		}
+
+		// geekren score
+		var get_scroes = function(user){
+
+			var subscriptions_url = user.subscriptions_url
+			$http.get(subscriptions_url)
+			.success(function(data){
+				var repos = data;
+				var scores = 0;
+				for (var i=0;i<repos.length;i++)
+				{
+					var repo = repos[i];
+					var repo_score = repo.stargazers_count + repo.watchers_count + repo.forks_count;
+					$http.get(repo.contributors_url)
+					.success(function(data){
+						var contributors = data;
+						for (var j=0;j<contributors.length;j++)
+						{
+							var contributor = contributors[i];
+
+							if(contributor.login !== user.login)
+								continue;
+							scores += repo_score * contributor.contributions
+						}
+					});
+				}
 			});
 		}
 
