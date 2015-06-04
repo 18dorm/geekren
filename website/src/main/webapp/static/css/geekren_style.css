@@ -19,67 +19,13 @@ html {
 font-family: sans-serif;
 }
 
-.spinner {
-  margin: 100px <span id="9_nwp" style="width: auto; height: auto; float: none"><a id="9_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?app_id=0&c=news&cf=1001&ch=0&di=128&fv=11&is_app=0&jk=7eafaa5df5144efa&k=auto&k0=auto&kdi0=0&luki=4&n=10&p=baidu&q=06011078_cpr&rb=0&rs=1&seller_id=1&sid=fa4e14f55daaaf7e&ssp2=1&stid=0&t=tpclicked3_hc&tu=u1922429&u=http%3A%2F%2Fwww%2Eadmin10000%2Ecom%2Fdocument%2F3601%2Ehtml&urlid=0" target="_blank" mpid="9" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">auto</span></a></span>;
-  width: 50px;
-  height: 60px;
-  text-align: center;
-  font-size: 10px;
-}
-
-.spinner > div {
-  background-color: #67CF22;
-  height: 100%;
-  width: 6px;
-  display: inline-block;
-
-  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-  animation: stretchdelay 1.2s infinite ease-in-out;
-}
-
-.spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
-}
-
-.spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-.spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-.spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
-}
-
-@-webkit-keyframes stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
-}
-
-@keyframes stretchdelay {
-  0%, 40%, 100% {
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }  20% {
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
-  }
-}
-
 /*
 body style
 */
-body {padding-top: 60px;
+body {
+  padding-top: 70px;
 }
-@media (max-width: 979px){
-  body{ padding-top:0; }
-}
+
 body {
 background: #f1f1f1;
 }
@@ -116,6 +62,10 @@ height: .4em;
 border-radius: 100%;
 left: .8em;
 top: .1em;
+}
+
+header+.container {
+  margin-top: 5em;
 }
 
 ul, menu, dir {
@@ -284,9 +234,6 @@ color: #777;
 }
 
 
-
-
-
 /*register style*/
 section .inner {
 max-width: 480px;
@@ -370,14 +317,14 @@ font: inherit;
 margin: 0;
 }
 
-/*
-div container
-*/
+/* div container */
+
 .main {
 -webkit-transition: -webkit-transform .5s;
 -moz-transition: -moz-transform .5s;
 transition: transform .5s;
 }
+
 .container {
 max-width: 800px;
 margin-left: auto;
@@ -416,4 +363,60 @@ display: block;
 .alert-notification, .card, .modal, .page-categories .tag.active, .page-categories .tag:hover, header, section {
 background: #fff;
 box-shadow: rgba(0,0,0,.1) 0 1px 3px 0;
+}
+
+/*=======================================*/
+
+/* loading */
+.spinner {
+  margin: 100px <span id="9_nwp" style="width: auto; height: auto; float: none"><a id="9_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?app_id=0&c=news&cf=1001&ch=0&di=128&fv=11&is_app=0&jk=7eafaa5df5144efa&k=auto&k0=auto&kdi0=0&luki=4&n=10&p=baidu&q=06011078_cpr&rb=0&rs=1&seller_id=1&sid=fa4e14f55daaaf7e&ssp2=1&stid=0&t=tpclicked3_hc&tu=u1922429&u=http%3A%2F%2Fwww%2Eadmin10000%2Ecom%2Fdocument%2F3601%2Ehtml&urlid=0" target="_blank" mpid="9" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">auto</span></a></span>;
+  width: 50px;
+  height: 60px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #67CF22;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
 }
